@@ -1,0 +1,71 @@
+* {
+    color: white;
+    font-family: Helvetica, sans-serif;
+    justify-content: center;
+    --green-color: #6ca965;
+    --yellow-color: #c8b653;
+    --gray-color: #787c7f;
+    --black-color: #000000;
+    background-color: var(--black-color);
+
+}
+
+.game-title {
+    padding: 10px 10px;
+    margin: 0px 0px;
+}
+
+.game-email {
+    padding: 10px 10px;
+}
+
+div.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+div.guess-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+div.guess {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LetterBox */
+
+div.letterbox {
+    --letterbox-dim: 25px;
+    width: var(--letterbox-dim);
+    height: var(--letterbox-dim);
+    max-width: var(--letterbox-dim);
+    max-height: var(--letterbox-dim);
+    border: solid;
+    border: 0.25rem solid var( --gray-color);
+    fill: var(--gray-color);
+    font-size: 2rem;
+    padding: 1em;
+    margin: 0.25em;
+    vertical-align: middle;
+    align-items: center;
+}
+
+/* Keyboard */
+
+div.keyboard-container {
+    display: flex;
+    flex-direction: column;
+}
+
+div.keyboard-row-top, div.keyboard-row-middle, div.keyboard-row-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
