@@ -12,11 +12,6 @@ function Game() {
     // useState upon enter and a row is full
     
 
-    const handleKeyPress = (e, r, c) => {
-        const copy = [...table];
-        copy[r][c] = e.target.value;
-        setTable(copy);
-    };
     return <>
     <div className="game-container">
         <h1 className="game-title"><strong>Wordle</strong> by Jonny</h1>

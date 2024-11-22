@@ -12,4 +12,4 @@ export default function LetterBox({value, onLetterChange}) {
             {value}
         </div>
     );
-}
+};
