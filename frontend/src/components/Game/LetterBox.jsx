@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react';
+import {useState, useRef, useEffect} from 'react';
 
 export default function LetterBox({value, onLetterChange, color}) {
     const handleKeyDown = (e) => {
@@ -6,6 +6,8 @@ export default function LetterBox({value, onLetterChange, color}) {
             onLetterChange(e.key.toUpperCase());
         }
     };
+
+
     
     const styles = {
         backgroundColor: `${color}`,

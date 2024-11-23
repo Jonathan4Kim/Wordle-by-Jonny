@@ -10,6 +10,10 @@
 
 }
 
+div:focus {
+    outline: none;
+}
+
 .game-title {
     padding: 10px 10px;
     margin: 0px 0px;
