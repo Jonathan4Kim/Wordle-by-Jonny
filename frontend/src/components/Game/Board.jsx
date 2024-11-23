@@ -26,7 +26,15 @@ export default function Board({}) {
         }
     };
 
-    useEffect(() => initial, []);
+    useEffect(() =>
+        {
+            const initGame = async () => {
+                await initial();
+            };
+            
+            initGame();
+        }
+    , []);
 
     const handleLetterChange = (key) => {
         console.log('handling letter change');
