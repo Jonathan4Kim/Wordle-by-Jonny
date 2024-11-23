@@ -2,7 +2,7 @@ import LetterBox from "./LetterBox";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-export default function Board() {
+export default function Board({}) {
     const [table, setTable] = useState(Array(6).fill(Array(5).fill('')));
     const [colorTable, setColorTable] = useState(Array(6).fill(Array(5).fill('#787c7f')));
     const [availRow, setAvailRow] = useState(0);
@@ -12,7 +12,7 @@ export default function Board() {
         'green': '#6ca965',
         'yellow': '#c8b653',
         'gray': '#787c7f'
-    }
+    };
 
     const initial = async () => {
         const url = 'http://127.0.0.1:5000/api/initialize_wordle';
