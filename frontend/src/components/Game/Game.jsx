@@ -17,7 +17,6 @@ function Game() {
         <h1 className="game-title"><strong>Wordle</strong> by Jonny</h1>
         <h2 className="game-email">Email: {email}</h2>
         <Board/>
-        <Keyboard/>
     </div>
     </>
 };

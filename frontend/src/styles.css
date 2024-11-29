@@ -6,8 +6,25 @@
     --yellow-color: #c8b653;
     --gray-color: #787c7f;
     --black-color: #000000;
-    background-color: var(--black-color);
+    background-color: var(--black-color); /* Add this to include padding in element dimensions */
 
+
+}
+
+h1.wrong-guess {
+    color: white;
+    display: none;
+    visibility: hidden;
+}
+
+div.whole-board {
+    width: 100%;
+    height: 100%;
+    background-color: #6ca965;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 0;
 }
 
 div:focus {
@@ -41,12 +58,13 @@ div.guess {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: aquamarine;
 }
 
 /* LetterBox */
 
 div.letterbox {
-    --letterbox-dim: 25px;
+    --letterbox-dim: 5px;
     width: var(--letterbox-dim);
     height: var(--letterbox-dim);
     max-width: var(--letterbox-dim);
@@ -61,11 +79,18 @@ div.letterbox {
     align-items: center;
 }
 
+
 /* Keyboard */
 
 div.keyboard-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin-top: auto;
+    padding: 0.5rem;
+    --key-width: 3px;
+    --key-height: 5px;
 }
 
 div.keyboard-row-top, div.keyboard-row-middle, div.keyboard-row-bottom {

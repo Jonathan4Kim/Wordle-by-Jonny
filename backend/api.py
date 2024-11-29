@@ -25,7 +25,7 @@ def initialize_wordle():
 @app.route('/api/check_word/<guess>', methods=["POST"])
 def check_word(guess):
     print(f"guess is: {guess}")
-    if not wordle.check_guess(guess):
+    if not wordle.is_valid_guess(guess):
         return jsonify({'error': 'guess is invalid'}), 500
     guess_after = wordle.check_guess(guess)
     print(guess_after)

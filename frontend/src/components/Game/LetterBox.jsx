@@ -1,20 +1,14 @@
-import {useState, useRef, useEffect} from 'react';
+export default function LetterBox({value, color}) {
 
-export default function LetterBox({value, onLetterChange, color}) {
-    const handleKeyDown = (e) => {
-        if ((/[a-zA-Z]/.test(e.key))) {
-            onLetterChange(e.key.toUpperCase());
-        }
-    };
 
 
     
     const styles = {
         backgroundColor: `${color}`,
-        width: 'var(--letterbox-dim)',
-        height: 'var(--letterbox-dim)',
-        maxWidth: 'var(--letterbox-dim)',
-        maxHeight: 'var(--letterbox-dim)',
+        // width: 'var(--letterbox-dim)',
+        // height: 'var(--letterbox-dim)',
+        // maxWidth: 'var(--letterbox-dim)',
+        // maxHeight: 'var(--letterbox-dim)',
         border: '0.25rem solid var(--gray-color)',
         borderColor: `${color}`,
         fill: 'var(--gray-color)',
@@ -27,7 +21,7 @@ export default function LetterBox({value, onLetterChange, color}) {
       
 
     return (
-        <div tabIndex={0} className="letterbox" onKeyDown={handleKeyDown} style={styles}>
+        <div tabIndex={0} className="letterbox" style={styles}>
             {value}
         </div>
     );

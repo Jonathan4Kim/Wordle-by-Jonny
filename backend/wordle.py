@@ -28,7 +28,7 @@ class Wordle:
         There are 3 states that every character has:
         1. gray: not in word (or in set) at all
         2. yellow: in the word, but in the wrong spot
-        3. green: in the word, in the rig ht spot
+        3. green: in the word, in the right spot
         """
         self.count += 1
         curr_count = Counter()
