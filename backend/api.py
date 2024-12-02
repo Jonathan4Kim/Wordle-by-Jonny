@@ -32,5 +32,10 @@ def check_word(guess):
     return jsonify({'guess': wordle.check_guess(guess)}), 200
 
 
+@app.route('/api/get_answer', methods=["GET"])
+def get_answer():
+    return jsonify({'message': wordle.get_answer()}), 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)

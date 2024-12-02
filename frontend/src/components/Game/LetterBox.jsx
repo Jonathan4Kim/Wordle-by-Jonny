@@ -1,3 +1,4 @@
+import {motion} from 'framer-motion';
 export default function LetterBox({value, color}) {
 
 
@@ -21,8 +22,8 @@ export default function LetterBox({value, color}) {
       
 
     return (
-        <div tabIndex={0} className="letterbox" style={styles}>
+        <motion.div whileHover={{scale: 1.1}} tabIndex={0} className="letterbox" style={styles}>
             {value}
-        </div>
+        </motion.div>
     );
 };

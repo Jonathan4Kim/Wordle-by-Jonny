@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import Keyboard from "./Keyboard";
 import GameEndPopup from "./GameEndPopup";
+import {motion} from "framer-motion";
 
 export default function Board() {
     const boardRef = useRef(null);
@@ -39,7 +40,7 @@ export default function Board() {
         if (position.row > 5) {
             setIsEnd(true);
         }
-    }, [position])
+    }, [position]);
 
     const initial = async () => {
         // set all initial values
@@ -178,7 +179,7 @@ export default function Board() {
                         </div>)
                 }
             </div>
-            <button onClick={newGame}>New Game</button>
+            {/* <motion.button whileHover={{scale: 1.1}} onClick={newGame}>New Game</motion.button> */}
             {table.map((row, rowIndex) => (
             <div className="guess" key={rowIndex}>
                 {row.map((cell, cellIndex) => (

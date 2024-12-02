@@ -1,3 +1,5 @@
+import {motion} from "framer-motion";
+
 export default function Key({letter, color, onLetterChange}) {
 
     const style = {
@@ -17,6 +19,6 @@ export default function Key({letter, color, onLetterChange}) {
     };
 
     return (
-        <div onClick={e => onLetterChange(letter)} style={style}>{letter}</div>
+        <motion.div whileFocus={{scale: 1.3}} whileHover={{scale: 1.1}} onClick={e => onLetterChange(letter.toUpperCase())} style={style}>{letter}</motion.div>
     );
 }

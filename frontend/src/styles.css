@@ -18,7 +18,7 @@ h1.wrong-guess {
 }
 
 div.whole-board {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background-color: #6ca965;
     display: flex;

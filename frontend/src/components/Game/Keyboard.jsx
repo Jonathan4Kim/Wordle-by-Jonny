@@ -1,5 +1,6 @@
 import '../../styles.css';
 import Key from './Key';
+import {motion} from "framer-motion";
 
 export default function Keyboard({color, handleLetterChange}) {
     const topKeys = "QWERTYUIOP".split('');
@@ -12,81 +13,17 @@ export default function Keyboard({color, handleLetterChange}) {
                 {topKeys.map((letter, index) => 
                 <Key letter={letter} color={color[letter]} onLetterChange={handleLetterChange}></Key>
                 )}
-                <div style={
-                    {
-                        backgroundColor: `#787c7f`,
-                        width: 'var(--keyboard-width)',
-                        height: 'var(--keyboard-height)',
-                        maxwidth: 'var(--keyboard-width)',
-                        maxheight: 'var(--keyboard-height)',
-                        border: '0.25rem solid var(--gray-color)',
-                        borderColor: `#787c7f`,
-                        fill: 'var(--gray-color)',
-                        fontSize: '2rem',
-                        padding: '1em',
-                        margin: '0.25em',
-                        verticalAlign: 'middle',
-                        alignItems: 'center',
-                    }
-                } onClick={e => handleLetterChange('Backspace')}>Delete</div>
+                <Key letter={"Backspace"} color={'#787c7f'} onLetterChange={handleLetterChange}></Key>
             </div>
             <div className='keyboard-row-middle'>
-                {middleKeys.map((key, index) => 
-                    <div style={
-                        {
-                            backgroundColor: `${color[key]}`,
-                            width: 'var(--keyboard-width)',
-                            height: 'var(--keyboard-height)',
-                            maxwidth: 'var(--keyboard-width)',
-                            maxheight: 'var(--keyboard-height)',
-                            border: '0.25rem solid var(--gray-color)',
-                            borderColor: `${color[key]}`,
-                            fill: 'var(--gray-color)',
-                            fontSize: '2rem',
-                            padding: '1em',
-                            margin: '0.25em',
-                            verticalAlign: 'middle',
-                            alignItems: 'center',
-                        }
-                    }>{key}</div>
+                {middleKeys.map((letter, index) => 
+                    <Key letter={letter} color={color[letter]} onLetterChange={handleLetterChange}></Key>
                 )}
-                <div style={
-                    {
-                        backgroundColor: `#787c7f`,
-                        width: 'var(--keyboard-width)',
-                        height: 'var(--keyboard-height)',
-                        maxwidth: 'var(--keyboard-width)',
-                        maxheight: 'var(--keyboard-height)',
-                        border: '0.25rem solid var(--gray-color)',
-                        borderColor: `#787c7f`,
-                        fill: 'var(--gray-color)',
-                        fontSize: '2rem',
-                        padding: '1em',
-                        margin: '0.25em',
-                        verticalAlign: 'middle',
-                        alignItems: 'center',
-                    }
-                } onClick={e => handleLetterChange('Enter')}>Enter</div>
+                <Key letter={"Enter"} color={'#787c7f'} onLetterChange={handleLetterChange}></Key>
             </div>
             <div className='keyboard-row-bottom'>
-                {bottomKeys.map((key, index) => 
-                <div style={
-                    {
-                        backgroundColor: `${color[key]}`,
-                        width: 'var(--keyboard-width)',
-                        height: 'var(--keyboard-height)',
-                        maxwidth: 'var(--keyboard-width)',
-                        maxheight: 'var(--keyboard-height)',
-                        border: '0.25rem solid var(--gray-color)',
-                        borderColor: `${color[key]}`,
-                        fill: 'var(--gray-color)',
-                        fontSize: '2rem',
-                        padding: '1em',
-                        margin: '0.25em',
-                        verticalAlign: 'middle',
-                        alignItems: 'center',
-                    }
-                }>{key}</div>
+                {bottomKeys.map((letter, index) => 
+                    <Key letter={letter} color={color[letter]} onLetterChange={handleLetterChange}></Key>
                 )}
             </div>
         </div>
