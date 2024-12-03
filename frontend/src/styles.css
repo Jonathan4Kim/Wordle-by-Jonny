@@ -5,10 +5,19 @@
     --green-color: #6ca965;
     --yellow-color: #c8b653;
     --gray-color: #787c7f;
-    --black-color: #000000;
-    background-color: var(--black-color); /* Add this to include padding in element dimensions */
+    --black-color: #121212;
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--black-color);
+}
 
+div.title {
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 h1.wrong-guess {
@@ -20,7 +29,7 @@ h1.wrong-guess {
 div.whole-board {
     width: 100vw;
     height: 100%;
-    background-color: #6ca965;
+    background-color: var(--black-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,24 +42,32 @@ div:focus {
 
 .game-title {
     padding: 10px 10px;
-    margin: 0px 0px;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .game-email {
     padding: 10px 10px;
+    color: var(--gray-color);
+    font-size: 1rem;
 }
 
 div.game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 20px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 div.guess-container {
     display: flex;
-    flex-direction: column;
-
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 5px;
 }
 
 div.guess {
@@ -58,43 +75,107 @@ div.guess {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: aquamarine;
+    background-color: var(--black-color);
 }
 
 /* LetterBox */
-
 div.letterbox {
-    --letterbox-dim: 5px;
+    --letterbox-dim: 62px;
     width: var(--letterbox-dim);
     height: var(--letterbox-dim);
-    max-width: var(--letterbox-dim);
-    max-height: var(--letterbox-dim);
-    border: solid;
-    border: 0.25rem solid var( --gray-color);
-    fill: var(--gray-color);
+    border: 2px solid var(--gray-color);
     font-size: 2rem;
-    padding: 1em;
-    margin: 0.25em;
-    vertical-align: middle;
+    font-weight: bold;
+    margin: 2px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    user-select: none;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
-
 /* Keyboard */
-
 div.keyboard-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 600px;
-    margin-top: auto;
-    padding: 0.5rem;
-    --key-width: 3px;
-    --key-height: 5px;
+    max-width: calc(88px * 5);
+    margin-top: 20px;
+    gap: 4px;
 }
 
-div.keyboard-row-top, div.keyboard-row-middle, div.keyboard-row-bottom {
+div.keyboard-row-top,
+div.keyboard-row-middle,
+div.keyboard-row-bottom {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2px;
+}
+
+/* Key styling */
+div.key {
+    background-color: var(--gray-color);
+    flex: 1;
+    min-width: 20px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    font-size: calc(min(1.2vw, 14px));
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+    margin: 0 1px;
+    padding: 0 2px;
+}
+
+div.key:hover {
+    filter: brightness(1.2);
+}
+
+/* Special keys */
+div.key[data-key="Enter"],
+div.key[data-key="Backspace"] {
+    flex: 1.5;
+    font-size: 0.6rem;
+    padding: 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Animation classes */
+.pop {
+    animation: pop 0.1s ease-in-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    div.letterbox {
+        --letterbox-dim: 50px;
+        font-size: 1.5rem;
+    }
+
+    div.keyboard-container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    div.key {
+        min-width: 32px;
+        height: 48px;
+        font-size: 1rem;
+    }
 }

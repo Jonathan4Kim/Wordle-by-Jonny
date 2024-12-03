@@ -19,6 +19,7 @@ export default function Board() {
                 return acc;
         }, {})
     );
+    const [animateRow, setAnimateRow] = useState(-1);
 
     const colorMap = {
         'green': '#6ca965',
@@ -69,7 +70,7 @@ export default function Board() {
         key = key.toUpperCase();
         // console.log(key)
 
-        if (key === 'BACKSPACE' && position.col > 0) {
+        if (key === 'BACKSPACE' && position.col > 0 || key === 'DEL' && position.col > 0) {
             setTable(prevTable => {
                 const newTable = prevTable.map(row => [...row]);
                 newTable[position.row][position.col - 1] = '';
@@ -130,6 +131,9 @@ export default function Board() {
                 const url = `http://127.0.0.1:5000/api/check_word/${guess}`;
                 const response = await axios.post(url);
                 if (response.status === 200) {
+                    // Trigger animation for current row
+                    setAnimateRow(position.row);
+                    
                     // color the guesses
                     const arr = colorTable.map((row, rowIndex) =>
                         rowIndex === position.row ? 
@@ -155,6 +159,12 @@ export default function Board() {
                     });
                     console.log('keycolor');
                     console.log(keyColors['A']);
+                    
+                    // Reset animation state after moving to next row
+                    setTimeout(() => {
+                        setAnimateRow(-1);
+                    }, 1000);
+                    
                     setPosition(prev => ({row: prev.row + 1, col: 0}));
                 } 
             } catch (error) {
@@ -169,6 +179,7 @@ export default function Board() {
     };
     return (
         <div tabIndex={0} ref={boardRef} onKeyDown={e => letterChange(e)} className="whole-board">
+            <div className="title">Wordle By Jonny</div>
             <div>
                 {isNotValidGuess && 
                     <p style={{display: isNotValidGuess ? 'block': 'none', visibility: isNotValidGuess ? 'visible' : 'hidden'}} className="wrong-guess">Not a valid Guess! Try Again!</p>
@@ -183,10 +194,12 @@ export default function Board() {
             {table.map((row, rowIndex) => (
             <div className="guess" key={rowIndex}>
                 {row.map((cell, cellIndex) => (
-                    <LetterBox key={cellIndex}
-                    value={cell}
-                    color={colorTable[rowIndex][cellIndex]}
-                    ></LetterBox>
+                    <LetterBox 
+                        key={cellIndex}
+                        value={cell}
+                        color={colorTable[rowIndex][cellIndex]}
+                        animate={rowIndex === animateRow}
+                    />
                 ))}
             </div>
             ))}

@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion';
-export default function LetterBox({value, color}) {
+export default function LetterBox({value, color, animate}) {
 
 
 
@@ -19,10 +19,29 @@ export default function LetterBox({value, color}) {
         verticalAlign: 'middle',
         alignItems: 'center',
       };
-      
+    
+      const flipVariants = {
+        initial: {
+            rotateX: 0,
+        },
+        flip: {
+            rotateX: 180,
+            transition: {
+                duration: 1.0,
+                ease: "easeInOut",
+            }
+        }
+    };
 
     return (
-        <motion.div whileHover={{scale: 1.1}} tabIndex={0} className="letterbox" style={styles}>
+        <motion.div 
+        whileHover={{scale: 1.1}}
+        tabIndex={0}
+        className="letterbox" style={styles}
+        variants={flipVariants}
+        initial="initial"
+        animate={animate ? "flip" : "initial"}
+        key={`${value}-${color}`}>
             {value}
         </motion.div>
     );

@@ -1,6 +1,5 @@
 import '../../styles.css';
 import Key from './Key';
-import {motion} from "framer-motion";
 
 export default function Keyboard({color, handleLetterChange}) {
     const topKeys = "QWERTYUIOP".split('');
@@ -11,19 +10,19 @@ export default function Keyboard({color, handleLetterChange}) {
         <div className='keyboard-container'>
             <div className='keyboard-row-top'>
                 {topKeys.map((letter, index) => 
-                <Key letter={letter} color={color[letter]} onLetterChange={handleLetterChange}></Key>
+                    <Key key={letter} letter={letter} color={color[letter]} onLetterChange={handleLetterChange} />
                 )}
-                <Key letter={"Backspace"} color={'#787c7f'} onLetterChange={handleLetterChange}></Key>
+                <Key key="Delete" letter="Del" color={'#787c7f'} onLetterChange={handleLetterChange} />
             </div>
             <div className='keyboard-row-middle'>
                 {middleKeys.map((letter, index) => 
-                    <Key letter={letter} color={color[letter]} onLetterChange={handleLetterChange}></Key>
+                    <Key key={letter} letter={letter} color={color[letter]} onLetterChange={handleLetterChange} />
                 )}
-                <Key letter={"Enter"} color={'#787c7f'} onLetterChange={handleLetterChange}></Key>
+                <Key key="enter" letter="Enter" color={'#787c7f'} onLetterChange={handleLetterChange} />
             </div>
             <div className='keyboard-row-bottom'>
                 {bottomKeys.map((letter, index) => 
-                    <Key letter={letter} color={color[letter]} onLetterChange={handleLetterChange}></Key>
+                    <Key key={letter} letter={letter} color={color[letter]} onLetterChange={handleLetterChange} />
                 )}
             </div>
         </div>
